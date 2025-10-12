@@ -1,0 +1,16 @@
+{
+  "cli": { "version": ">= 3.18.0" },
+  "build": {
+    "preview": {
+      "android": { "gradleCommand": ":app:assembleRelease" },
+      "ios": { "simulator": true }
+    },
+    "production": {
+      "android": { "workflow": "managed" },
+      "ios": { "workflow": "managed" }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

@@ -1,0 +1,32 @@
+fragment NodeFields on ProfileNode {
+  id
+  name
+  __typename
+  parentNodeId
+}
+
+fragment ConnectionFields on ListProfileNodesConnection {
+  pageInfo { endCursor hasNextPage }
+}
+
+query RootProfileNodes($first: Int!, $after: String) {
+  listProfileNodes(
+    where: { parentNodeId: { eq: null } }
+    first: $first
+    after: $after
+  ) {
+    edges { cursor node { ...NodeFields } }
+    ...ConnectionFields
+  }
+}
+
+query ChildrenProfileNodes($parentId: String!, $first: Int!, $after: String) {
+  listProfileNodes(
+    where: { parentNodeId: { eq: $parentId } }
+    first: $first
+    after: $after
+  ) {
+    edges { cursor node { ...NodeFields } }
+    ...ConnectionFields
+  }
+}
