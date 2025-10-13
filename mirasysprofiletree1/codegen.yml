@@ -1,0 +1,16 @@
+schema:
+  - https://router.mirasys.dev/graphql
+documents:
+  - "src/features/profile-tree/graphql/**/*.graphql"
+generates:
+  src/features/profile-tree/graphql/generated/:
+    preset: client
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHooks: true
+      scalars:
+        Long: number
+        DateTime: string

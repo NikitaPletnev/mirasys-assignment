@@ -1,0 +1,7 @@
+default_platform(:android)
+platform :android do
+  desc "Build release APK"
+  lane :build do
+    gradle(task: "assembleRelease")
+  end
+end

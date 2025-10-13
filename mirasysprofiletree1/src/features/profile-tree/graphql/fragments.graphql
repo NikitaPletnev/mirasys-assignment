@@ -1,0 +1,6 @@
+fragment NodeBase on IProfileNode {
+  id
+  name
+  kind
+  parentNodeId
+}

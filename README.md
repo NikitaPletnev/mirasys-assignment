@@ -1,1 +1,0 @@
-# mirasys-assignment

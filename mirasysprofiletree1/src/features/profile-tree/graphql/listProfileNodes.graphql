@@ -1,0 +1,6 @@
+query ListProfileNodes($first: Int, $after: String, $where: ProfileNodeFilterInput, $order: [ProfileNodeSortInput!]) {
+  listProfileNodes(first: $first, after: $after, where: $where, order: $order) {
+    nodes { id name kind parentNodeId }
+    pageInfo { hasNextPage endCursor }
+  }
+}
